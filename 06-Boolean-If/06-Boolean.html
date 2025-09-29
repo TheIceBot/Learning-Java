@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin</title>
+    <script src="06-java.js"></script>
+</head>
+<body>
+    <h1>Flip a Coin!!</h1>
+    <button onclick="
+    const randomNumber = Math.random()
+    let side = '';
+    if (randomNumber >= 0 && randomNumber <= 0.5) {
+        side = 'Tails';
+    }
+    else {
+        side = 'Heads';
+    }
+
+    if (side === 'Tails') {
+        alert('You win')
+    }
+    else {
+        alert('You Lose')
+    }
+    ">heads</button>
+    <button onclick="
+    const randomNumber = Math.random()
+    let side = '';
+    if (randomNumber >= 0 && randomNumber <= 0.5) {
+        side = 'Tails';
+    }
+    else {
+        side = 'Heads';
+    }
+
+    if (side === 'Tails') {
+        alert('You win')
+    }
+    else {
+        alert('You Lose')
+    } ">Tails
+    </button>
+</body>
+</html>
