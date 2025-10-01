@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let result = '';
+        function convertLenght(distancia, from, to) {
+            if (from === 'Millas') {
+                to = 'Km';
+                result = distancia * 1.6;
+            }
+            else if (from === 'Km') {
+                to = 'Millas'
+                result = distancia * 0.621371;
+            }
+            console.log(`${distancia} ${from} es igual a ${result} ${to}`);
+        }
+        convertLenght(50, 'Millas', 'Km');
+    </script>
+</body>
+</html>
