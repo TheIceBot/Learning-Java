@@ -20,6 +20,11 @@
     "
     >Scissors</button>
     <script>
+        const score = {
+            Wins: 0,
+            Loses: 0,
+            Tie: 0
+        }
         let computerMove = '';
         function playGame(playerMove) {
         pickComputerMove();
@@ -27,15 +32,21 @@
 
         if (computerMove === 'Rock' && playerMove === 'Scissors' || computerMove === 'Scissors' && playerMove === 'paper' || computerMove === 'paper' && playerMove === 'Rock') {
             result = 'You Lose';
+            score.Loses += 1;
         }
         else if (computerMove === 'Scissors' && playerMove === 'Rock' || computerMove === 'paper' && playerMove === 'Scissors' || computerMove === 'Rock' && playerMove === 'paper') {
             result = 'You Win';
+            score.Wins += 1;
+
         }
         else if (computerMove === 'Rock' && playerMove === 'Rock' || computerMove === 'Scissors' && playerMove === 'Scissors' || computerMove === 'paper' && playerMove === 'paper') {
             result = 'Tie';
+            score.Tie += 1;
         }
-        alert(`You picked ${playerMove}. The computer picked ${computerMove}. ${result}`);
-        
+
+
+        alert(`You picked ${playerMove}. The computer picked ${computerMove}. ${result}.\nWins: ${score.Wins} Loses: ${score.Loses} Tie: ${score.Tie}`);
+
         }
 
         function pickComputerMove() {
