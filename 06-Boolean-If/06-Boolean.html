@@ -9,38 +9,41 @@
 <body>
     <h1>Flip a Coin!!</h1>
     <button onclick="
-    const randomNumber = Math.random()
-    let side = '';
-    if (randomNumber >= 0 && randomNumber <= 0.5) {
-        side = 'Tails';
-    }
-    else {
-        side = 'Heads';
-    }
-
-    if (side === 'Tails') {
-        alert('You win')
-    }
-    else {
-        alert('You Lose')
-    }
+    Flip('Heads');
     ">heads</button>
     <button onclick="
-    const randomNumber = Math.random()
-    let side = '';
-    if (randomNumber >= 0 && randomNumber <= 0.5) {
-        side = 'Tails';
-    }
-    else {
-        side = 'Heads';
-    }
+    Flip('Tails');
+    ">Tails</button>
+    <script>
+        let score = JSON.parse((localStorage.getItem('Score')));
+        function Flip(Election) {
+            const randomNumber = Math.random()
+            let result = '';
+            if (randomNumber >= 0 && randomNumber <= 0.5) {
+                side = 'Tails';
+            }
+            else {
+                side = 'Heads';
+            }
 
-    if (side === 'Tails') {
-        alert('You win')
-    }
-    else {
-        alert('You Lose')
-    } ">Tails
-    </button>
+            if (side === Election) {
+                result = 'Win';
+            }
+            else {
+                result = 'Lose';
+            }
+            if (result === 'Win') {
+                score.Wins += 1;
+            }
+            else {
+                score.Loses += 1;
+            }
+            localStorage.setItem('Score', JSON.stringify(score));
+
+            alert(`You Picked ${Election}. The coin is ${side}. You ${result}.\nWins: ${score.Wins} Loses: ${score.Loses}`);
+        }
+
+
+    </script>
 </body>
 </html>
