@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock paper Scissors!</h1>
+    <button onclick="
+    playGame('Rock');
+    "
+    >Rock</button>
+    <button onclick="
+    playGame('paper');
+    "
+    >paper</button>
+    <button onclick= "
+    playGame('Scissors');
+    "
+    >Scissors</button>
+    <p class="JS-Result">---</p>
+    <p >The computer select: <strong class="JS-ST-computer">0</strong>, You selected <strong class="JS-ST-player">0</strong></p>
+    <p >
+        Wins: <span class="JS-score-win">0</span>
+        Loses: <span class="JS-score-lose">0</span>
+        Tie: <span class="JS-score-tie">0</span>
+    </p>
+    <button onclick="
+    score.Wins = 0;
+    score.Loses = 0;
+    score.Tie = 0;
+    localStorage.removeItem('score');
+    updateScore();
+    "
+    >Remove score</button>
+    <script>
+        let score = {
+            Wins: 0,
+            Loses: 0,
+            Tie: 0
+        }
+
+
+        let computerMove = '';
+        function playGame(playerMove) {
+        pickComputerMove();
+        let result = '';
+
+        if (computerMove === 'Rock' && playerMove === 'Scissors' || computerMove === 'Scissors' && playerMove === 'paper' || computerMove === 'paper' && playerMove === 'Rock') {
+            result = 'You Lose';
+            score.Loses += 1;
+        }
+        else if (computerMove === 'Scissors' && playerMove === 'Rock' || computerMove === 'paper' && playerMove === 'Scissors' || computerMove === 'Rock' && playerMove === 'paper') {
+            result = 'You Win';
+            score.Wins += 1;
+
+        }
+        else if (computerMove === 'Rock' && playerMove === 'Rock' || computerMove === 'Scissors' && playerMove === 'Scissors' || computerMove === 'paper' && playerMove === 'paper') {
+            result = 'Tie';
+            score.Tie += 1;
+        }
+        
+        document.querySelector('.JS-Result').innerHTML = result;
+        document.querySelector('.JS-ST-computer').innerHTML= computerMove;
+        document.querySelector('.JS-ST-player').innerHTML = playerMove;
+        updateScore();
+
+        }
+
+        function pickComputerMove() {
+            const randomNumber = Math.random();
+
+
+
+            if (randomNumber >= 0 && randomNumber < 1/3 ) {
+                computerMove = 'Rock';
+            }
+            else if (randomNumber >= 1/3 && randomNumber < 2/3 ) {
+                computerMove = 'paper';
+            }
+            else if (randomNumber >= 2/3 && randomNumber < 1 ) {
+                computerMove = 'Scissors';
+            }
+        }
+        function updateScore () {
+        document.querySelector('.JS-score-win').innerHTML = score.Wins;
+        document.querySelector('.JS-score-lose').innerHTML = score.Loses;
+        document.querySelector('.JS-score-tie').innerHTML = score.Tie;
+        }
+        
+    </script>
+    
+</body>
+</html>
