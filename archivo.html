@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Flip a Coin</h1>
+    <button onclick="
+    finalResult('Tails'); "
+    >Tails</button>
+    <button onclick="
+    finalResult('Heads'); "
+    >Heads</button>
+    <p>You choose <span class="JS1">---</span> and the coin heads in <span class="JS2">---</span>. <span class="JS3">---</span></p>
+
+    <script>
+        let score = '';
+        let coin = '';
+        function finalResult (option) {
+            coinResult();
+            if (option === coin) {
+                score = 'You win';
+            }
+            else {
+                score = 'You Lose';
+            }
+
+            document.querySelector('.JS2').innerHTML = coin;
+            document.querySelector('.JS1').innerHTML = option;
+            document.querySelector('.JS3').innerHTML = score;
+
+
+        }
+
+        function coinResult () {
+            let randomNumber = Math.random();
+            if (randomNumber <= 1/2) {
+                coin = 'Tails';
+            }
+            else {
+                coin = 'Heads';
+            }
+        }
+    </script>
+</body>
+</html>
