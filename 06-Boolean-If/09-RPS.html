@@ -11,15 +11,15 @@
     <button class="RPS-button" onclick="
     playGame('Rock');
     "
-    ><img src="rock-emoji.png" class="RPS-img"></button>
+    ><img src="rock-emoji.png" class="RPS-img1"></button>
     <button class="RPS-button" onclick="
     playGame('paper');
     "
-    ><img src="paper-emoji.png" class="RPS-img"></button>
+    ><img src="paper-emoji.png" class="RPS-img2"></button>
     <button class="RPS-button" onclick= "
     playGame('Scissors');
     "
-    ><img src="scissors-emoji.png" class="RPS-img"></button>
+    ><img src="scissors-emoji.png" class="RPS-img3"></button>
     <p class="JS-Result">---</p>
     <p >The computer select: <strong class="JS-ST-computer">0</strong>, You selected <strong class="JS-ST-player">0</strong></p>
     <p >
@@ -62,9 +62,26 @@
             score.Tie += 1;
         }
         
+        imageResults();
+        function imageResults() {
+            let computerImage = '';
+            if (computerMove === 'Rock') {
+                computerImage = 'rock-emoji.png';
+            } else if (computerMove === 'paper') {
+                computerImage = 'paper-emoji.png';
+            } else if (computerMove === 'Scissors') {
+                computerImage = 'scissors-emoji.png';
+            }
+
+            document.querySelector('.JS-ST-computer').innerHTML =
+                `<img src="${computerImage}" width="50" height="50">`;
+
+            document.querySelector('.JS-ST-player').innerHTML =
+                `<img src="${playerMove.toLowerCase()}-emoji.png" width="50" height="50">`;
+        }
+
         document.querySelector('.JS-Result').innerHTML = result;
-        document.querySelector('.JS-ST-computer').innerHTML= computerMove;
-        document.querySelector('.JS-ST-player').innerHTML = playerMove;
+
         updateScore();
 
         }
