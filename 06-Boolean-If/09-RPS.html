@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="09-RPS-STYLE.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Rock paper Scissors!</h1>
-    <button  onclick="
+    <h1 class="TitleCss">Rock paper Scissors!</h1>
+    <button class="RPS-button" onclick="
     playGame('Rock');
     "
-    >Rock</button>
-    <button onclick="
+    ><img src="rock-emoji.png" class="RPS-img"></button>
+    <button class="RPS-button" onclick="
     playGame('paper');
     "
-    >paper</button>
-    <button onclick= "
+    ><img src="paper-emoji.png" class="RPS-img"></button>
+    <button class="RPS-button" onclick= "
     playGame('Scissors');
     "
-    >Scissors</button>
+    ><img src="scissors-emoji.png" class="RPS-img"></button>
     <p class="JS-Result">---</p>
     <p >The computer select: <strong class="JS-ST-computer">0</strong>, You selected <strong class="JS-ST-player">0</strong></p>
     <p >

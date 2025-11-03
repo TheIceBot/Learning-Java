@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(63, 61, 61);
+    color: white;
+    font-family: Tahoma;
+}
+
+.TitleCss {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+button {
+    background-color: transparent;
+    border: 3px solid;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+}
+
+.JS-Result {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.RPS-img {
+    width: 70px;
+    height: 70px;
+}
+
+.RPS-button {
+    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+button:active {
+    opacity: 0.2;
+}
